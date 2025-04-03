@@ -49,7 +49,7 @@ describe('HeroeService', () => {
     const filter = new Filter();
     filter.page = 0;
     filter.pageSize = 2;
-    filter.filterValue = "thor"
+    filter.filterValue = "Pepito"
 
     expect(service).toBeTruthy();
     service.getHeroesByFilter(filter);

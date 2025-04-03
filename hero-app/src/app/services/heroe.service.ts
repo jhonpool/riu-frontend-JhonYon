@@ -44,7 +44,10 @@ export class HeroeService {
 
   getHeroesById(idHero: string) {
     let heroe = this.heroes.find((x) => x.id == idHero);
-    this._heroesUpdate.next(heroe as Heroe)
+    let filterHero = new Heroe(heroe?.name,heroe?.description,heroe?.photo,heroe?.gender)
+    filterHero.id = heroe!.id 
+    filterHero.createdDate = heroe!.id 
+    this._heroesUpdate.next(filterHero)
   }
 
   addHeroe(newHero: Heroe): void {
@@ -69,30 +72,18 @@ export class HeroeService {
     update.description = updateHeroe.description;
     update.photo = update.photo;
     update.updateDate = new Date().toLocaleString();
-    //this._heroesList.next(this.heroes.filter(x => !x.isDeleted))
   }
 
   initializeHeroes(): void {
-    this.heroes.push(new Heroe("Spiderman","test"))
-    this.heroes.push(new Heroe("Spiderman 2","test"))
-    this.heroes.push(new Heroe("Spiderman 3","test"))
-    this.heroes.push(new Heroe("Spiderman 4","test"))
-    this.heroes.push(new Heroe("Spiderman 5","test"))
-    this.heroes.push(new Heroe("Spiderman 6","test"))
-    this.heroes.push(new Heroe("Spiderman 7","test"))
-    this.heroes.push(new Heroe("Spiderman 8","test"))
-    this.heroes.push(new Heroe("Spiderman 9","test"))
-    this.heroes.push(new Heroe("Spiderman 10","test"))
-
-    // this.heroes.push(new Heroe("Thor","test",11))
-    // this.heroes.push(new Heroe("Thor 2","test",20))
-    // this.heroes.push(new Heroe("Thor 3","test",21))
-    // this.heroes.push(new Heroe("Thor 4","test",22))
-    // this.heroes.push(new Heroe("Thor 5","test",23))
-    // this.heroes.push(new Heroe("Thor 6","test",24))
-    // this.heroes.push(new Heroe("Thor 7","test",25))
-    // this.heroes.push(new Heroe("Thor 8","test",26))
-    // this.heroes.push(new Heroe("Thor 9","test",27))
-    // this.heroes.push(new Heroe("Thor 10","test",28))
+    this.heroes.push(new Heroe("Spiderman","superheroe de marvel"))
+    this.heroes.push(new Heroe("Thor","superheroe de marvel"))
+    this.heroes.push(new Heroe("Irom 3","superheroe de marvel"))
+    this.heroes.push(new Heroe("mrRobot","serie"))
+    this.heroes.push(new Heroe("Goku","manga"))
+    this.heroes.push(new Heroe("Spiderman 2","tsuperheroe de marvelest"))
+    this.heroes.push(new Heroe("Spiderman 3","superheroe de marvel"))
+    this.heroes.push(new Heroe("xmen 1","superheroe de marvel"))
+    this.heroes.push(new Heroe("batman","DC"))
+    this.heroes.push(new Heroe("megaman","superheroe de marvel"))
   }
 }
