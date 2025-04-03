@@ -1,0 +1,52 @@
+.demo-table {
+    width: 100%;
+  }
+  
+  .demo-button-container {
+    padding-bottom: 16px;
+  }
+  
+  .demo-button + .demo-button {
+    margin-left: 8px;
+  }
+
+
+  .title{
+    text-align: center;
+    font-family: system-ui;
+  }
+
+  .filter{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 1%;
+    gap: 20px;
+  }
+  
+  .filter input{
+    font-size: 23px;
+    padding-left: 10px;
+    width: 200px;
+    height: 35px;
+    border-radius: 20px;
+    border-color: white;
+  }
+
+  .field{
+    display: flex;
+        flex-direction: row;
+        justify-content: center;
+  }
+
+  button
+  {
+    font-size: 20px;
+  }
+
+  .button-table
+  {
+    font-size: 15px;
+    margin-left: 8px;
+  }
+
+  
