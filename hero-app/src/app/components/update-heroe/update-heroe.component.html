@@ -1,0 +1,28 @@
+<div class="hero-content">
+  @let update = heroe();
+  
+  <div>
+    <h1>Actualizar</h1>
+   </div>
+  
+    <div>
+      <label>Nombre</label>
+      <input type="text" [(ngModel)]="update.name" />
+    </div>
+
+    <div>
+      <label>Foto</label>
+      <input type="text" [(ngModel)]="update.photo" />
+    </div>
+
+    <div>
+      <label>Descripcion</label>
+      <input type="text" [(ngModel)]="update.description" />
+    </div>
+
+    <div>
+      <button mat-flat-button type="button" (click)="cancel()">Cancelar</button>
+      <button mat-flat-button type="button" (click)="submitForm()">Guardar</button>
+    </div>
+<div>
+
