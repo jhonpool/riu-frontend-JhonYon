@@ -1,0 +1,26 @@
+<form [formGroup]="heroeForm" (ngSubmit)="submitForm($event)" class="hero-form">
+
+  <div>
+   <h1>Agregar</h1>
+  </div>
+
+  <div class="field">
+    <label>Nombre</label>
+    <input type="text" formControlName="name" />
+  </div>
+
+  <div class="field">
+    <label>Foto</label>
+    <input type="text" formControlName="photo" />
+  </div>
+
+  <div class="field">
+    <label>Descripcion</label>
+    <input type="text" formControlName="description" />
+  </div>
+
+  <div class="field">
+    <button mat-flat-button type="button" (click)="cancel()">Cancelar</button>
+    <button mat-flat-button type="submit">Guardar</button>
+  </div>
+</form>
