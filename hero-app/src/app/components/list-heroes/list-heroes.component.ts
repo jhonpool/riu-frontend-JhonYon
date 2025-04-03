@@ -45,7 +45,9 @@ export class ListHeroesComponent implements OnInit {
 
   //set table
   displayedColumns: string[] = [
+    'id',
     'name',
+    'gender',
     'description',
     'photo',
     'createdDate',
@@ -54,9 +56,7 @@ export class ListHeroesComponent implements OnInit {
   ];
 
   setFilter = new Filter();
-  
   searchValue = signal('');
-
 
   heroes = toSignal(this.heroServices.heroes$, {
     requireSync: true,
@@ -77,8 +77,6 @@ export class ListHeroesComponent implements OnInit {
     effect(() => {
       this.setFilter.total = this.totalHeroes();
     });
-
-
   }
 
 

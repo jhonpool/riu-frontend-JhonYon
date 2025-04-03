@@ -4,23 +4,43 @@
    <h1>Agregar</h1>
   </div>
 
-  <div class="field">
-    <label>Nombre</label>
-    <input type="text" formControlName="name" />
-  </div>
+  <mat-form-field>
+    <mat-label>Nombre</mat-label>
+    <input matInput  formControlName="name" (blur)="updateErrorMessage()">
 
-  <div class="field">
-    <label>Foto</label>
-    <input type="text" formControlName="photo" />
-  </div>
+    @if (heroeForm.controls["name"].invalid) {
+      <mat-error><strong> {{errorName()}}</strong></mat-error>
+    }
+  </mat-form-field >
 
-  <div class="field">
-    <label>Descripcion</label>
-    <input type="text" formControlName="description" />
-  </div>
+  <mat-form-field>
+    <mat-label>Foto</mat-label>
+    <input matInput  formControlName="photo" (blur)="updateErrorMessage()">
+
+    @if (heroeForm.controls["photo"].invalid) {
+      <mat-error><strong>{{errorPhoto()}}</strong></mat-error>
+    }
+  </mat-form-field >
+
+  <mat-form-field>
+    <mat-label>Genero</mat-label>
+    <select matNativeControl formControlName="gender" name="gend">
+      @for (gen of genders; track gen) {
+        <option [value]="gen.value">{{gen.viewValue}}</option>
+      }
+    </select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Descripcion</mat-label>
+    <textarea matInput formControlName="description" (blur)="updateErrorMessage()"></textarea>
+    @if (heroeForm.controls["description"].invalid) {
+      <mat-error><strong>{{errorDescription()}}</strong></mat-error>
+    }
+  </mat-form-field>
 
   <div class="field">
     <button mat-flat-button type="button" (click)="cancel()">Cancelar</button>
-    <button mat-flat-button type="submit">Guardar</button>
+    <button mat-flat-button type="submit" [disabled]="!this.heroeForm.valid? true : null">Guardar</button>
   </div>
 </form>

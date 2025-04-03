@@ -1,28 +1,72 @@
-<div class="hero-content">
+<div class="hero-form">
   @let update = heroe();
-  
+
   <div>
     <h1>Actualizar</h1>
-   </div>
-  
-    <div>
-      <label>Nombre</label>
-      <input type="text" [(ngModel)]="update.name" />
-    </div>
+  </div>
 
-    <div>
-      <label>Foto</label>
-      <input type="text" [(ngModel)]="update.photo" />
-    </div>
+  @if(update) {
+  <mat-form-field>
+    <mat-label>Nombre {{ update.name }}</mat-label>
+    <input
+      matInput
+      required
+      [(ngModel)]="update.name"
+      (blur)="activeButton()"
+    />
 
-    <div>
-      <label>Descripcion</label>
-      <input type="text" [(ngModel)]="update.description" />
-    </div>
+    @if (update.name ==="") {
+    <mat-error><strong>El nombre es requerido</strong></mat-error>
+    }
+  </mat-form-field>
 
-    <div>
-      <button mat-flat-button type="button" (click)="cancel()">Cancelar</button>
-      <button mat-flat-button type="button" (click)="submitForm()">Guardar</button>
-    </div>
-<div>
+  <mat-form-field>
+    <mat-label>Foto</mat-label>
+    <input
+      matInput
+      required
+      [(ngModel)]="update.photo"
+      (blur)="activeButton()"
+    />
 
+    @if (update.photo ==="") {
+    <mat-error><strong>La url de la foto es requerido</strong></mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Genero</mat-label>
+    <select matNativeControl required [(ngModel)]="update.gender" name="gend">
+      @for (gen of genders; track gen) {
+      <option [value]="gen.value">{{ gen.viewValue }}</option>
+      }
+    </select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Descripcion</mat-label>
+    <textarea
+      required
+      matInput
+      [(ngModel)]="update.description"
+      (blur)="activeButton()"
+    ></textarea>
+
+    @if (update.description ==="") {
+    <mat-error><strong>El campo descripcion es requerido</strong></mat-error>
+    }
+  </mat-form-field>
+
+  <div class="field">
+    <button mat-flat-button type="button" (click)="cancel()">Cancelar</button>
+    <button
+      mat-flat-button
+      type="button"
+      (click)="submitForm()"
+      [disabled]="!canSave() ? true : null"
+    >
+      Guardar
+    </button>
+  </div>
+  }
+</div>
